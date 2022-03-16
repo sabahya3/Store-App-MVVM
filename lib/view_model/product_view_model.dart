@@ -6,7 +6,7 @@ class ProductViewModel extends ChangeNotifier {
   late ProductRepo productRepo;
   ProductViewModel({required this.productRepo});
 
-  List<Product> _products = [];
+ final List<Product> _products = [];
 
   List<Product> get products {
     return _products;

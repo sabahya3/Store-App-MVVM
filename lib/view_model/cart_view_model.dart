@@ -4,7 +4,7 @@ import 'package:story/models/product.dart';
 import 'package:story/reposetry/services/hive_service.dart';
 
 class CartViewModel with ChangeNotifier {
-  List<Cart> _cart = [];
+ final List<Cart> _cart = [];
 
   List<Cart> get cart {
     return _cart;

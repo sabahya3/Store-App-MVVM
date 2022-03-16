@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/src/provider.dart';
 import 'package:story/view_model/cart_view_model.dart';
 
+// ignore: must_be_immutable
 class CartIcon extends StatelessWidget {
   CartIcon({Key? key, required this.onPress}) : super(key: key);
   Function onPress;
@@ -15,7 +16,7 @@ class CartIcon extends StatelessWidget {
           child: Text(
             context.watch<CartViewModel>().cart.length.toString(),
             style:
-                const TextStyle(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 18),
+                const TextStyle(color: Colors.red, fontWeight: FontWeight.bold,fontSize: 18),
           ),
         ),
         IconButton(

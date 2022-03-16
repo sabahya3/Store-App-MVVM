@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:story/views/screens/cart_screen.dart';
 import 'package:story/views/screens/home_screen.dart';
 
@@ -13,3 +13,17 @@ depugPrint(var obj) {
     print(obj);
   }
 }
+
+ void modalBottomSheetMenu(BuildContext context,Widget child){
+        showModalBottomSheet(
+            context: context,
+            builder: (builder){
+              return  Container(
+                height: MediaQuery.of(context).size.height-50,
+                color: Colors.transparent, //could change this to Color(0xFF737373), 
+                           //so you don't have to change MaterialApp canvasColor
+                child:  child
+              );
+            }
+        );
+      }
