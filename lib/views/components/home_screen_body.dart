@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:story/models/product.dart';
 import 'package:story/view_model/product_view_model.dart';
 import 'package:story/views/components/card_item.dart';
+import 'package:story/views/components/custom_tween_builder.dart';
 import 'package:story/views/screens/details.dart';
 
 class HomeScreenBody extends StatelessWidget {
@@ -23,32 +24,42 @@ class HomeScreenBody extends StatelessWidget {
                     color: Colors.black,
                   ),
                 )
-              : GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      childAspectRatio: 2 / 3,
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 5),
-                  itemCount: value.products.length,
-                  itemBuilder: (context, index) {
-                    Product obj = value.products[index];
-                    return CustomCard(
-                      height: height,
-                      width: width,
-                      image: obj.image,
-                      desc: obj.desc,
-                      title: obj.title,
-                      onPress: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => Details(
-                                  product: obj,
-                                )));
-                      },
-                      onLongPress: () {
-                        context.read<ProductViewModel>().removeProduct(obj.id!);
-                      },
-                    );
-                  });
+              : Column(
+                children: [
+
+
+
+                  Expanded(
+                    child: GridView.builder(
+                      physics:const BouncingScrollPhysics(),
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                            childAspectRatio: 2 / 3,
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 10,
+                            mainAxisSpacing: 5),
+                        itemCount: value.products.length,
+                        itemBuilder: (context, index) {
+                          Product obj = value.products[index];
+                          return CustomCard(
+                            height: height,
+                            width: width,
+                            image: obj.image,
+                            desc: obj.desc,
+                            title: obj.title,
+                            onPress: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => Details(
+                                        product: obj,
+                                      )));
+                            },
+                            onLongPress: () {
+                              context.read<ProductViewModel>().removeProduct(obj.id!);
+                            },
+                          );
+                        }),
+                  ),
+                ],
+              );
         },
       ),
     );

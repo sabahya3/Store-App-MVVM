@@ -7,6 +7,7 @@ String url = 'https://my-apis1.herokuapp.com/products';
 
 Radius customRaduis = const Radius.circular(80);
 List<Widget> pages = [const MyHomePage(), const CartScreen()];
+List<Widget> pageTitle = [const Text('Home'),const Text('Cart'),];
 
 depugPrint(var obj) {
   if (kDebugMode) {

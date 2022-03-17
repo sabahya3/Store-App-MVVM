@@ -13,10 +13,14 @@ class CartIcon extends StatelessWidget {
       children: [
         Align(
           alignment: Alignment.topRight,
-          child: Text(
-            context.watch<CartViewModel>().cart.length.toString(),
-            style:
-                const TextStyle(color: Colors.red, fontWeight: FontWeight.bold,fontSize: 18),
+          child: CircleAvatar(
+            radius: 10,
+            backgroundColor: Colors.white,
+            child: Text(
+              context.watch<CartViewModel>().cart.length.toString(),
+              style:
+                  const TextStyle(color: Colors.red, fontWeight: FontWeight.bold,fontSize: 15),
+            ),
           ),
         ),
         IconButton(
@@ -25,7 +29,8 @@ class CartIcon extends StatelessWidget {
             },
             icon: const Icon(
               Icons.shopping_cart,
-              color: Colors.white,
+              color: Colors.yellow,
+              size: 30,
             )),
       ],
     );

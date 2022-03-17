@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:story/views/components/custom_tween_builder.dart';
 
 // ignore: must_be_immutable
 class AddToCartCard extends StatelessWidget {
@@ -32,75 +33,90 @@ class AddToCartCard extends StatelessWidget {
       margin: const EdgeInsets.all(15),
       width: width,
       height: height * 0.27,
-      child: Column(
-        children: [
-          Text(title),
-          const Divider(
-            color: Colors.black,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: SizedBox(
-                    height: height * 0.20,
-                    width: width * 0.35,
-                    child: Image.network(
-                      image,
-                      fit: BoxFit.fill,
-                    )),
-              ),
-              Column(
-                children: [
-                  SizedBox(
-                      width: width * 0.40,
-                      child: Text(
-                        desc,
-                        softWrap: true,
-                        maxLines: 4,
-                      )),
-                  SizedBox(
-                    height: height * 0.02,
+      child: CustomTweenBuilder(
+        curve: Curves.bounceInOut,
+        dx: 0.0,
+        dy: 100.0,
+        child: Column(
+          children: [
+            Text(title),
+            const Divider(
+              color: Colors.black,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CustomTweenBuilder(
+                  curve: Curves.bounceInOut,
+                  dy: 100.0,
+                  dx: 0.0,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: SizedBox(
+                        height: height * 0.20,
+                        width: width * 0.35,
+                        child: Image.network(
+                          image,
+                          fit: BoxFit.fill,
+                        )),
                   ),
-                  Row(
+                ),
+                CustomTweenBuilder(
+                  curve: Curves.bounceInOut,
+                  dx: 0.0,
+                  dy: 100.0,
+                  child: Column(
                     children: [
-                      Text(total),
                       SizedBox(
-                        width: width * 0.02,
-                      ),
-                      //    const Spacer(),
-                      FloatingActionButton.small(
-                          onPressed: () {
-                            decrement();
-                          },
-                          child: const Icon(
-                            Icons.remove,
+                          width: width * 0.40,
+                          child: Text(
+                            desc,
+                            softWrap: true,
+                            maxLines: 4,
                           )),
                       SizedBox(
-                        width: width * 0.01,
+                        height: height * 0.02,
                       ),
-                      Text(
-                        count,
-                        style: const TextStyle(fontSize: 18),
-                      ),
-                      SizedBox(
-                        width: width * 0.01,
-                      ),
-                      FloatingActionButton.small(
-                          onPressed: () {
-                            increment();
-                          },
-                          child: const Icon(
-                            Icons.add,
-                          ))
+                      Row(
+                        children: [
+                          Text(total),
+                          SizedBox(
+                            width: width * 0.02,
+                          ),
+                          //    const Spacer(),
+                          FloatingActionButton.small(
+                              onPressed: () {
+                                decrement();
+                              },
+                              child: const Icon(
+                                Icons.remove,
+                              )),
+                          SizedBox(
+                            width: width * 0.01,
+                          ),
+                          Text(
+                            count,
+                            style: const TextStyle(fontSize: 18),
+                          ),
+                          SizedBox(
+                            width: width * 0.01,
+                          ),
+                          FloatingActionButton.small(
+                              onPressed: () {
+                                increment();
+                              },
+                              child: const Icon(
+                                Icons.add,
+                              ))
+                        ],
+                      )
                     ],
-                  )
-                ],
-              )
-            ],
-          )
-        ],
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

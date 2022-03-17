@@ -23,7 +23,7 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-    return Scaffold(appBar: AppBar(backgroundColor: Colors.teal,centerTitle: true,title:const Text('Cart'),),
+    return Scaffold(
     body: CartScreenBody(
       height: height,
       width: width,

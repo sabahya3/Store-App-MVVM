@@ -36,11 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.teal,
-        centerTitle: true,
-        title:const Text('Home Page'),
-      ),
+    
       body: HomeScreenBody(height: height, width: width),
       floatingActionButton: FloatingActionButton.extended(
         backgroundColor: Colors.teal,
